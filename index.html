@@ -199,21 +199,61 @@
     .cat-4 .skill-tag { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: #c8c0a8; }
 
     /* EXPERIENCE */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 80%, transparent); }
-    .timeline-item { position: relative; margin-bottom: 3rem; }
-    .timeline-dot { position: absolute; left: -2.45rem; top: 0.3rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 12px rgba(245,196,0,0.6); }
-    .timeline-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.3s; }
-    .timeline-card:hover { border-color: rgba(245,196,0,0.35); }
-    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 85%, transparent); }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-dot {
+      position: absolute; left: -2.95rem; top: 1.4rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 4px rgba(245,196,0,0.15), 0 0 14px rgba(245,196,0,0.5);
+    }
+    .timeline-dot.active {
+      animation: dotPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes dotPulse {
+      0%,100% { box-shadow: 0 0 0 4px rgba(245,196,0,0.15), 0 0 14px rgba(245,196,0,0.5); }
+      50% { box-shadow: 0 0 0 8px rgba(245,196,0,0.08), 0 0 22px rgba(245,196,0,0.7); }
+    }
+    .timeline-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2rem; transition: border-color 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .timeline-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(245,196,0,0.1) 100%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .timeline-card:hover { border-color: rgba(245,196,0,0.35); box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
+    .timeline-card:hover::before { opacity: 1; }
+    .timeline-card.featured { border-color: rgba(245,196,0,0.25); }
+    .timeline-card.featured::before { opacity: 1; }
+    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.4rem; }
     .timeline-role { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
-    .timeline-date { font-size: 0.67rem; color: var(--accent); border: 1px solid rgba(245,196,0,0.35); padding: 0.2rem 0.6rem; border-radius: 3px; }
-    .timeline-company { font-size: 0.74rem; color: var(--accent3); margin-bottom: 1rem; }
-    .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .timeline-list li { font-size: 0.74rem; color: #7a7060; line-height: 1.8; display: flex; align-items: flex-start; gap: 0.6rem; }
-    .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; }
-    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
-    .tech-pill { font-size: 0.62rem; padding: 0.22rem 0.65rem; background: rgba(245,196,0,0.07); border: 1px solid rgba(245,196,0,0.2); color: var(--accent); border-radius: 2px; }
+    .timeline-date {
+      font-size: 0.65rem; color: var(--accent);
+      border: 1px solid rgba(245,196,0,0.35); padding: 0.22rem 0.7rem; border-radius: 3px;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .timeline-date.current::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    .timeline-company {
+      font-size: 0.72rem; color: var(--accent3); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .company-sep { color: var(--border); }
+    .duration-badge { font-size: 0.62rem; color: var(--accent3); border: 1px solid rgba(230,168,0,0.3); background: rgba(230,168,0,0.08); padding: 0.15rem 0.55rem; border-radius: 3px; }
+    .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .timeline-list li {
+      font-size: 0.74rem; color: #7a7060; line-height: 1.8;
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      padding: 0.3rem 0.6rem; border-radius: 4px; transition: background 0.2s;
+    }
+    .timeline-list li:hover { background: rgba(245,196,0,0.04); color: #9a8868; }
+    .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; font-size: 0.7rem; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .tech-pill { font-size: 0.62rem; padding: 0.24rem 0.7rem; background: rgba(245,196,0,0.07); border: 1px solid rgba(245,196,0,0.2); color: var(--accent); border-radius: 3px; transition: background 0.2s; }
+    .tech-pill:hover { background: rgba(245,196,0,0.14); }
 
     /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
@@ -306,7 +346,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="stat-num">6</div>
+        <div class="stat-num">7+</div>
         <div class="stat-label">Projets réalisés</div>
       </div>
       <div class="stat-card">
@@ -314,7 +354,7 @@
         <div class="stat-label">Langages</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">8+</div>
+        <div class="stat-num">11+</div>
         <div class="stat-label">Frameworks</div>
       </div>
     </div>
@@ -394,6 +434,7 @@
           <span class="skill-tag">CodeIgniter</span>
           <span class="skill-tag">React</span>
           <span class="skill-tag">Ionic</span>
+          <span class="skill-tag">Flutter</span>
         </div>
       </div>
       <div class="skill-category cat-3">
@@ -427,6 +468,41 @@
       <div class="section-line"></div>
     </div>
     <div class="timeline">
+
+      <!-- SMMEC — ERP (en cours) -->
+      <div class="timeline-item">
+        <div class="timeline-dot active"></div>
+        <div class="timeline-card featured">
+          <div class="timeline-header">
+            <div class="timeline-role">Stage Développeur Full-Stack — Projet ERP</div>
+            <div class="timeline-date current">Mars – 15 Juin 2026</div>
+          </div>
+          <div class="timeline-company">
+            SMMEC <span class="company-sep">·</span> Société Malagasy Mutualiste d'Épargne et de Crédit
+            <span class="company-sep">·</span>
+            <span class="duration-badge">Stage · 3 mois</span>
+          </div>
+          <ul class="timeline-list">
+            <li>Conception et développement d'un ERP complet de gestion de stock et de logistique</li>
+            <li>Architecture backend Laravel avec API REST et système d'authentification par rôles (Agence, Direction, DAF, Logistique)</li>
+            <li>Gestion des mouvements de stock : entrées séquencées (LIFO/FIFO), sorties par lot avec traçabilité complète</li>
+            <li>Implémentation d'un circuit de validation des demandes d'achat multi-niveaux (Direction → DAF → Logistique)</li>
+            <li>Tableau de bord analytique avec graphiques (top matériels demandés, classement utilisateurs, filtres dynamiques)</li>
+            <li>Développement de l'interface mobile Flutter (écrans logistique, formulaires, recherche intelligente)</li>
+            <li>Gestion multi-organisations avec filtrage par lieu et type d'organisation</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-pill">Laravel</span>
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">REST API</span>
+            <span class="tech-pill">Git</span>
+            <span class="tech-pill">fl_chart</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- M-Pro Car (stage) -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
