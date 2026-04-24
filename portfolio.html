@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilo Ny Aina RASOANAIVO — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #242424;
+      --accent: #f5c400;
+      --accent2: #ffd94d;
+      --accent3: #e6a800;
+      --text: #f0ece0;
+      --muted: #585450;
+      --card: #131313;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1rem;
+      color: var(--accent); letter-spacing: 0.06em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      transition: color 0.25s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--accent); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px; opacity: 0.3;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute; top: 15%; left: 5%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,196,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; bottom: 5%; right: 5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(230,168,0,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid rgba(245,196,0,0.4); color: var(--accent);
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 800; line-height: 1; color: #fff; margin-bottom: 0.3rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      font-weight: 600; color: var(--muted); margin-bottom: 1.8rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-desc {
+      font-size: 0.8rem; line-height: 2; color: #807060;
+      max-width: 580px; margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.8rem; background: var(--accent); color: #040810;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      border-radius: 3px; transition: all 0.25s;
+    }
+    .btn-primary:hover { background: #ffe033; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,196,0,0.35); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--text);
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      border-radius: 3px; transition: all 0.25s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-stats {
+      position: absolute; right: 5rem; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 1.2rem;
+      animation: fadeUp 0.6s 0.5s ease both; z-index: 1;
+    }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.2rem 1.6rem; border-radius: 6px; text-align: center;
+      border-top: 2px solid rgba(245,196,0,0.4);
+    }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    /* SECTIONS */
+    section { padding: 6rem 5rem; position: relative; }
+    section:nth-child(even) { background: rgba(18,16,10,0.6); }
+    .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 800; color: #fff; }
+    .section-title span { color: var(--accent); }
+    .section-line { width: 48px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin-top: 0.8rem; }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { font-size: 0.8rem; line-height: 2; color: #8a8070; margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--accent); font-weight: 500; }
+    .about-details { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+    .detail-row { display: flex; align-items: center; gap: 1rem; font-size: 0.74rem; }
+    .detail-key { color: var(--muted); width: 80px; flex-shrink: 0; }
+    .detail-val { color: var(--text); }
+    .detail-val a { color: var(--accent2); text-decoration: none; }
+    .detail-val a:hover { text-decoration: underline; }
+    .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
+    .info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.5rem; border-left: 3px solid var(--accent);
+    }
+    .info-card h4 { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .info-card p { font-size: 0.74rem; line-height: 1.9; color: #7a7060; }
+    .lang-list { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .lang-tag { background: rgba(245,196,0,0.08); border: 1px solid rgba(245,196,0,0.25); color: var(--accent); font-size: 0.68rem; padding: 0.25rem 0.7rem; border-radius: 3px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
+    .skill-category {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .skill-category::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+    .cat-1::before { background: linear-gradient(90deg, var(--accent), transparent); }
+    .cat-2::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+    .cat-3::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+    .cat-4::before { background: linear-gradient(90deg, #a09070, transparent); }
+    .skill-category:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-4px); }
+    .cat-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+    .cat-title { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag { font-size: 0.67rem; padding: 0.28rem 0.65rem; border-radius: 3px; border: 1px solid; }
+    .cat-1 .skill-tag { background: rgba(245,196,0,0.07); border-color: rgba(245,196,0,0.3); color: var(--accent); }
+    .cat-2 .skill-tag { background: rgba(255,217,77,0.06); border-color: rgba(255,217,77,0.25); color: var(--accent2); }
+    .cat-3 .skill-tag { background: rgba(230,168,0,0.07); border-color: rgba(230,168,0,0.3); color: var(--accent3); }
+    .cat-4 .skill-tag { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: #c8c0a8; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 80%, transparent); }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-dot { position: absolute; left: -2.45rem; top: 0.3rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 12px rgba(245,196,0,0.6); }
+    .timeline-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.3s; }
+    .timeline-card:hover { border-color: rgba(245,196,0,0.35); }
+    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .timeline-role { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
+    .timeline-date { font-size: 0.67rem; color: var(--accent); border: 1px solid rgba(245,196,0,0.35); padding: 0.2rem 0.6rem; border-radius: 3px; }
+    .timeline-company { font-size: 0.74rem; color: var(--accent3); margin-bottom: 1rem; }
+    .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .timeline-list li { font-size: 0.74rem; color: #7a7060; line-height: 1.8; display: flex; align-items: flex-start; gap: 0.6rem; }
+    .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .tech-pill { font-size: 0.62rem; padding: 0.22rem 0.65rem; background: rgba(245,196,0,0.07); border: 1px solid rgba(245,196,0,0.2); color: var(--accent); border-radius: 2px; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 2rem;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,196,0,0.03), transparent); opacity: 0; transition: opacity 0.3s; }
+    .project-card:hover { border-color: rgba(245,196,0,0.3); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .project-card:hover::after { opacity: 1; }
+    .project-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(245,196,0,0.08); line-height: 1; margin-bottom: 0.5rem; }
+    .project-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .project-desc { font-size: 0.74rem; color: #6a6050; line-height: 1.85; margin-bottom: 1.2rem; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .stack-tag { font-size: 0.62rem; padding: 0.2rem 0.55rem; border-radius: 2px; border: 1px solid; }
+    .stack-green { background: rgba(245,196,0,0.07); border-color: rgba(245,196,0,0.25); color: var(--accent); }
+    .stack-blue  { background: rgba(255,217,77,0.05); border-color: rgba(255,217,77,0.2); color: var(--accent2); }
+    .stack-amber { background: rgba(230,168,0,0.07); border-color: rgba(230,168,0,0.25); color: var(--accent3); }
+    .stack-purple{ background: rgba(200,192,168,0.05); border-color: rgba(200,192,168,0.15); color: #b0a880; }
+
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
+    .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; border-top: 2px solid var(--accent3); transition: transform 0.3s; }
+    .edu-card:hover { transform: translateY(-4px); }
+    .edu-year { font-size: 0.64rem; color: var(--accent); letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .edu-degree { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+    .edu-school { font-size: 0.72rem; color: #6a6050; }
+    .edu-badge { display: inline-block; margin-top: 0.8rem; font-size: 0.6rem; padding: 0.2rem 0.6rem; background: rgba(245,196,0,0.1); border: 1px solid rgba(245,196,0,0.3); color: var(--accent); border-radius: 2px; }
+
+    /* CONTACT */
+    #contact { text-align: center; }
+    .contact-intro { font-size: 0.8rem; color: #6a6050; max-width: 500px; margin: 0 auto 3rem; line-height: 2; }
+    .contact-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; max-width: 700px; margin: 0 auto; }
+    .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; text-decoration: none; transition: all 0.3s; min-width: 200px; }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(245,196,0,0.12); }
+    .contact-icon { font-size: 1.4rem; }
+    .contact-info { text-align: left; }
+    .contact-type { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .contact-val { font-size: 0.76rem; color: var(--text); margin-top: 0.15rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.64rem; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 7rem 1.5rem 3rem; }
+      .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; margin-top: 2.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">ILO.DEV</div>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#education">Formation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-content">
+      <div class="hero-tag"><span class="dot"></span>Disponible · Antananarivo, Madagascar</div>
+      <h1 class="hero-name">Ilo Ny Aina<br /><span>RASOANAIVO</span></h1>
+      <p class="hero-title">Développeur Full-Stack</p>
+      <p class="hero-desc">
+        Passionné par le numérique, rigoureux et curieux, je mets mes compétences en développement
+        au service de projets ambitieux. Titulaire d'une Licence en Informatique, je poursuis un
+        Master tout en étant pleinement disponible professionnellement.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">⚡ Voir mes projets</a>
+        <a href="#contact" class="btn-secondary">✉ Me contacter</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Projets réalisés</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Langages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Frameworks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <div class="section-label">// 01 — à propos</div>
+      <h2 class="section-title">Qui <span>suis-je</span> ?</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Titulaire d'une <strong>Licence en Informatique</strong> spécialisée en Développement à IT University Andoharanofotsy, je suis passionné par le numérique et motivé à mettre mes compétences au service de projets à fort impact.</p>
+        <p><strong>Sérieux, rigoureux et curieux</strong>, j'apprends rapidement et m'adapte facilement aux nouvelles technologies ainsi qu'aux environnements de travail exigeants, aussi bien en autonomie qu'en équipe.</p>
+        <p>Je prépare actuellement un <strong>Master en Développement</strong> entièrement en ligne avec des horaires flexibles. Cette organisation n'impacte en aucun cas ma disponibilité ni mon engagement professionnel.</p>
+        <div class="about-details">
+          <div class="detail-row"><span class="detail-key">📅 Né le</span><span class="detail-val">20 août 2003</span></div>
+          <div class="detail-row"><span class="detail-key">📍 Ville</span><span class="detail-val">Sabotsy Namehana, Antananarivo</span></div>
+          <div class="detail-row"><span class="detail-key">📧 Email</span><span class="detail-val"><a href="mailto:Soanaivojunior@gmail.com">Soanaivojunior@gmail.com</a></span></div>
+          <div class="detail-row"><span class="detail-key">📱 Tel</span><span class="detail-val">0331444300 (WhatsApp)</span></div>
+          <div class="detail-row"><span class="detail-key">🚗 Permis</span><span class="detail-val">Catégorie B</span></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="info-card">
+          <h4>🌍 Langues</h4>
+          <div class="lang-list">
+            <span class="lang-tag">🇲🇬 Malagasy (natif)</span>
+            <span class="lang-tag">🇫🇷 Français</span>
+            <span class="lang-tag">🇬🇧 Anglais</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <h4>🎯 Centres d'intérêt</h4>
+          <p>⚽ Football &nbsp;·&nbsp; 🎮 Jeux-vidéo &nbsp;·&nbsp; 💻 Technologie informatique</p>
+        </div>
+        <div class="info-card" style="border-left-color: var(--accent3);">
+          <h4>🎓 Formation en cours</h4>
+          <p>Master I en Développement — IT University<br />Formation 100% en ligne · Horaires flexibles<br />Disponibilité professionnelle totale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <div class="section-label">// 02 — compétences</div>
+      <h2 class="section-title">Mon <span>stack</span> technique</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category cat-1">
+        <div class="cat-icon">⚡</div>
+        <div class="cat-title">Langages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C#</span>
+        </div>
+      </div>
+      <div class="skill-category cat-2">
+        <div class="cat-icon">🔧</div>
+        <div class="cat-title">Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">Symfony</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">CodeIgniter</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Ionic</span>
+        </div>
+      </div>
+      <div class="skill-category cat-3">
+        <div class="cat-icon">🗄️</div>
+        <div class="cat-title">Bases de données</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Oracle</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-category cat-4">
+        <div class="cat-icon">🔗</div>
+        <div class="cat-title">Intégration & Outils</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Talend (ETL)</span>
+          <span class="skill-tag">Git / CI/CD</span>
+          <span class="skill-tag">API REST</span>
+          <span class="skill-tag">UI/UX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-label">// 03 — expérience</div>
+      <h2 class="section-title">Parcours <span>professionnel</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="timeline-role">Stage Développeur Full-Stack</div>
+            <div class="timeline-date">Sept. – Nov. 2024</div>
+          </div>
+          <div class="timeline-company">M-Pro Car Madagascar</div>
+          <ul class="timeline-list">
+            <li>Développement d'une application web de gestion de rendez-vous et de services automobiles</li>
+            <li>Conception du backend avec Spring Boot et création d'API REST</li>
+            <li>Gestion de la base de données PostgreSQL (modélisation, requêtes SQL)</li>
+            <li>Mise en place d'un système de gestion de stock (entrées / sorties)</li>
+            <li>Implémentation de l'authentification et gestion des rôles Admin / Client</li>
+            <li>Développement des interfaces (formulaires, listes, filtres) et participation à la conception UI/UX</li>
+            <li>Utilisation de Git et participation à un processus de CI/CD</li>
+            <li>Tests, corrections et amélioration continue de l'application</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-pill">Spring Boot</span>
+            <span class="tech-pill">Next.js</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">REST API</span>
+            <span class="tech-pill">Git</span>
+            <span class="tech-pill">CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <div class="section-label">// 04 — projets</div>
+      <h2 class="section-title">Projets <span>réalisés</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card" style="border-left: 3px solid var(--accent);">
+        <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
+        <div class="project-title">M-Pro Car — Gestion Auto</div>
+        <p class="project-desc">Application web complète pour la gestion de rendez-vous et services automobiles. Backend Spring Boot, API REST, authentification multi-rôles et gestion de stock.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-green">Spring Boot</span>
+          <span class="stack-tag stack-blue">Next.js</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-amber">Git / CI/CD</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-title">Gestion de Stock (LIFO / FIFO / CMUP)</div>
+        <p class="project-desc">Application de gestion des mouvements de stocks avec support des méthodes d'évaluation LIFO, FIFO et CMUP. Suivi complet des entrées et sorties.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-green">Express.js</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-amber">Node.js</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-title">Vente de Voitures — Web & Mobile</div>
+        <p class="project-desc">Plateforme complète pour vendre et acheter des voitures avec backend Spring Boot, interface web React et application mobile Ionic.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-green">Spring Boot</span>
+          <span class="stack-tag stack-blue">React</span>
+          <span class="stack-tag stack-purple">Ionic</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-title">Mada-Immo — Gestion Immobilière</div>
+        <p class="project-desc">Application de gestion de location de biens immobiliers pour plusieurs propriétaires. Suivi des locataires, prélèvement des loyers mensuels et états des lieux.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-amber">PHP</span>
+          <span class="stack-tag stack-amber">CodeIgniter</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-title">Ultimate Team Race</div>
+        <p class="project-desc">Plateforme de gestion de courses à pieds : inscription des coureurs, enregistrement des résultats et classements dynamiques par épreuve.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-amber">PHP</span>
+          <span class="stack-tag stack-green">Laravel</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">05</div>
+        <div class="project-title">Gestion d'Entreprise (RH & Stocks)</div>
+        <p class="project-desc">Application de gestion des ressources humaines et des stocks d'une entreprise. Suivi des employés, inventaires et génération de rapports.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-green">Java</span>
+          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-purple">MVC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <div class="section-label">// 05 — formation</div>
+      <h2 class="section-title">Parcours <span>académique</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2025 – EN COURS</div>
+        <div class="edu-degree">Master I en Développement</div>
+        <div class="edu-school">IT University Andoharanofotsy</div>
+        <div class="edu-badge">Formation en ligne · Horaires flexibles</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2025</div>
+        <div class="edu-degree">Licence en Informatique</div>
+        <div class="edu-school">IT University — option Développement</div>
+        <div class="edu-badge">Diplômé 2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2021</div>
+        <div class="edu-degree">BACC Série D</div>
+        <div class="edu-school">ESCA — Ecole Sacré-Cœur Antanimena</div>
+        <div class="edu-badge">Mention Assez Bien</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2007 – 2021</div>
+        <div class="edu-degree">Scolarité primaire & secondaire</div>
+        <div class="edu-school">Ecole Sacré-Cœur Antanimena</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label" style="display:flex;justify-content:center;">// 06 — contact</div>
+      <h2 class="section-title">Travaillons <span>ensemble</span></h2>
+      <div class="section-line" style="margin:0.8rem auto 0;"></div>
+    </div>
+    <p class="contact-intro">Disponible pour toute opportunité professionnelle, stage ou projet. N'hésitez pas à me contacter par email ou WhatsApp.</p>
+    <div class="contact-cards">
+      <a href="mailto:Soanaivojunior@gmail.com" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <div class="contact-type">Email</div>
+          <div class="contact-val">Soanaivojunior@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://wa.me/261331444300" target="_blank" class="contact-card">
+        <div class="contact-icon">📱</div>
+        <div class="contact-info">
+          <div class="contact-type">WhatsApp</div>
+          <div class="contact-val">0331444300</div>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <div class="contact-icon">📍</div>
+        <div class="contact-info">
+          <div class="contact-type">Localisation</div>
+          <div class="contact-val">Sabotsy Namehana, Antananarivo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span style="color:var(--accent)">Ilo Ny Aina RASOANAIVO</span>
+    <span>Développeur Full-Stack · 2025</span>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.project-card,.skill-category,.edu-card,.timeline-card,.info-card,.contact-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = `opacity 0.55s ${i * 0.06}s ease, transform 0.55s ${i * 0.06}s ease`;
+      observer.observe(el);
+    });
+
+    // Nav active highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
