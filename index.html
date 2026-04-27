@@ -42,106 +42,35 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800; font-size: 1rem;
-      color: var(--accent); letter-spacing: 0.06em;
-    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--accent); letter-spacing: 0.06em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--muted);
-      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
-      transition: color 0.25s; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px; background: var(--accent); transition: width 0.3s;
-    }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.25s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
     /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 8rem 5rem 4rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px; opacity: 0.3;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    }
-    .hero-glow {
-      position: absolute; top: 15%; left: 5%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(245,196,0,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-glow2 {
-      position: absolute; bottom: 5%; right: 5%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(230,168,0,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    #hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 5rem 4rem; position: relative; overflow: hidden; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.3; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%); }
+    .hero-glow { position: absolute; top: 15%; left: 5%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(245,196,0,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-glow2 { position: absolute; bottom: 5%; right: 5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(230,168,0,0.05) 0%, transparent 70%); pointer-events: none; }
+
     .hero-content { position: relative; z-index: 1; max-width: 780px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1px solid rgba(245,196,0,0.4); color: var(--accent);
-      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 2rem;
-      animation: fadeUp 0.6s ease both;
-    }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(245,196,0,0.4); color: var(--accent); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 2rem; animation: fadeUp 0.6s ease both; }
     .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      font-weight: 800; line-height: 1; color: #fff; margin-bottom: 0.3rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
+    .hero-name { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 800; line-height: 1; color: #fff; margin-bottom: 0.3rem; animation: fadeUp 0.6s 0.1s ease both; }
     .hero-name span { color: var(--accent); }
-    .hero-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.6rem);
-      font-weight: 600; color: var(--muted); margin-bottom: 1.8rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-desc {
-      font-size: 0.8rem; line-height: 2; color: #807060;
-      max-width: 580px; margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
+    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(1rem, 2.5vw, 1.6rem); font-weight: 600; color: var(--muted); margin-bottom: 1.8rem; animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-desc { font-size: 0.8rem; line-height: 2; color: #807060; max-width: 580px; margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.3s ease both; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.8rem; background: var(--accent); color: #040810;
-      font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-      border-radius: 3px; transition: all 0.25s;
-    }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; background: var(--accent); color: #040810; font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: all 0.25s; }
     .btn-primary:hover { background: #ffe033; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,196,0,0.35); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--text);
-      font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-      border-radius: 3px; transition: all 0.25s;
-    }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: all 0.25s; }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    .hero-stats {
-      position: absolute; right: 5rem; top: 50%; transform: translateY(-50%);
-      display: flex; flex-direction: column; gap: 1.2rem;
-      animation: fadeUp 0.6s 0.5s ease both; z-index: 1;
-    }
-    .stat-card {
-      background: var(--card); border: 1px solid var(--border);
-      padding: 1.2rem 1.6rem; border-radius: 6px; text-align: center;
-      border-top: 2px solid rgba(245,196,0,0.4);
-    }
+
+    .hero-stats { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.2rem; animation: fadeUp 0.6s 0.5s ease both; z-index: 1; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); padding: 1.2rem 1.6rem; border-radius: 6px; text-align: center; border-top: 2px solid rgba(245,196,0,0.4); }
     .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); }
     .stat-label { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -166,10 +95,7 @@
     .detail-val a { color: var(--accent2); text-decoration: none; }
     .detail-val a:hover { text-decoration: underline; }
     .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
-    .info-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem; border-left: 3px solid var(--accent);
-    }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; border-left: 3px solid var(--accent); }
     .info-card h4 { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
     .info-card p { font-size: 0.74rem; line-height: 1.9; color: #7a7060; }
     .lang-list { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem; }
@@ -177,18 +103,13 @@
 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem; }
-    .skill-category {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.8rem;
-      transition: border-color 0.3s, transform 0.3s;
-      position: relative; overflow: hidden;
-    }
+    .skill-category { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
     .skill-category::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
     .cat-1::before { background: linear-gradient(90deg, var(--accent), transparent); }
     .cat-2::before { background: linear-gradient(90deg, var(--accent2), transparent); }
     .cat-3::before { background: linear-gradient(90deg, var(--accent3), transparent); }
     .cat-4::before { background: linear-gradient(90deg, #a09070, transparent); }
-    .skill-category:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-4px); }
+    .skill-category:hover { border-color: rgba(245,196,0,0.3); transform: translateY(-4px); }
     .cat-icon { font-size: 1.4rem; margin-bottom: 1rem; }
     .cat-title { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -196,72 +117,31 @@
     .cat-1 .skill-tag { background: rgba(245,196,0,0.07); border-color: rgba(245,196,0,0.3); color: var(--accent); }
     .cat-2 .skill-tag { background: rgba(255,217,77,0.06); border-color: rgba(255,217,77,0.25); color: var(--accent2); }
     .cat-3 .skill-tag { background: rgba(230,168,0,0.07); border-color: rgba(230,168,0,0.3); color: var(--accent3); }
-    .cat-4 .skill-tag { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: #c8c0a8; }
+    .cat-4 .skill-tag { background: rgba(200,192,168,0.05); border-color: rgba(200,192,168,0.15); color: #c8c0a8; }
 
     /* EXPERIENCE */
-    .timeline { position: relative; padding-left: 2.5rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 85%, transparent); }
-    .timeline-item { position: relative; margin-bottom: 2.5rem; }
-    .timeline-dot {
-      position: absolute; left: -2.95rem; top: 1.4rem;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
-      box-shadow: 0 0 0 4px rgba(245,196,0,0.15), 0 0 14px rgba(245,196,0,0.5);
-    }
-    .timeline-dot.active {
-      animation: dotPulse 2.4s ease-in-out infinite;
-    }
-    @keyframes dotPulse {
-      0%,100% { box-shadow: 0 0 0 4px rgba(245,196,0,0.15), 0 0 14px rgba(245,196,0,0.5); }
-      50% { box-shadow: 0 0 0 8px rgba(245,196,0,0.08), 0 0 22px rgba(245,196,0,0.7); }
-    }
-    .timeline-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 2rem; transition: border-color 0.3s, box-shadow 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .timeline-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(245,196,0,0.1) 100%);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .timeline-card:hover { border-color: rgba(245,196,0,0.35); box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
-    .timeline-card:hover::before { opacity: 1; }
-    .timeline-card.featured { border-color: rgba(245,196,0,0.25); }
-    .timeline-card.featured::before { opacity: 1; }
-    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.4rem; }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border) 80%, transparent); }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-dot { position: absolute; left: -2.45rem; top: 0.3rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 12px rgba(245,196,0,0.6); }
+    .timeline-dot.dot-dim { background: var(--accent3); box-shadow: 0 0 8px rgba(230,168,0,0.4); }
+    .timeline-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; transition: border-color 0.3s; }
+    .timeline-card:hover { border-color: rgba(245,196,0,0.3); }
+    .timeline-card.featured { border-left: 3px solid var(--accent); }
+    .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
     .timeline-role { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
-    .timeline-date {
-      font-size: 0.65rem; color: var(--accent);
-      border: 1px solid rgba(245,196,0,0.35); padding: 0.22rem 0.7rem; border-radius: 3px;
-      display: flex; align-items: center; gap: 0.4rem;
-    }
-    .timeline-date.current::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-    .timeline-company {
-      font-size: 0.72rem; color: var(--accent3); margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .company-sep { color: var(--border); }
-    .duration-badge { font-size: 0.62rem; color: var(--accent3); border: 1px solid rgba(230,168,0,0.3); background: rgba(230,168,0,0.08); padding: 0.15rem 0.55rem; border-radius: 3px; }
-    .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .timeline-list li {
-      font-size: 0.74rem; color: #7a7060; line-height: 1.8;
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      padding: 0.3rem 0.6rem; border-radius: 4px; transition: background 0.2s;
-    }
-    .timeline-list li:hover { background: rgba(245,196,0,0.04); color: #9a8868; }
-    .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; font-size: 0.7rem; }
-    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
-    .tech-pill { font-size: 0.62rem; padding: 0.24rem 0.7rem; background: rgba(245,196,0,0.07); border: 1px solid rgba(245,196,0,0.2); color: var(--accent); border-radius: 3px; transition: background 0.2s; }
-    .tech-pill:hover { background: rgba(245,196,0,0.14); }
+    .timeline-date { font-size: 0.67rem; color: var(--accent); border: 1px solid rgba(245,196,0,0.35); padding: 0.2rem 0.6rem; border-radius: 3px; white-space: nowrap; }
+    .timeline-company { font-size: 0.74rem; color: var(--accent3); margin-bottom: 0.3rem; }
+    .timeline-meta { font-size: 0.67rem; color: var(--muted); margin-bottom: 1rem; }
+    .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .timeline-list li { font-size: 0.74rem; color: #7a7060; line-height: 1.8; display: flex; align-items: flex-start; gap: 0.6rem; }
+    .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .tech-pill { font-size: 0.62rem; padding: 0.22rem 0.65rem; background: rgba(245,196,0,0.07); border: 1px solid rgba(245,196,0,0.2); color: var(--accent); border-radius: 2px; }
 
     /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
-    .project-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 2rem;
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
     .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,196,0,0.03), transparent); opacity: 0; transition: opacity 0.3s; }
     .project-card:hover { border-color: rgba(245,196,0,0.3); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
     .project-card:hover::after { opacity: 1; }
@@ -270,10 +150,10 @@
     .project-desc { font-size: 0.74rem; color: #6a6050; line-height: 1.85; margin-bottom: 1.2rem; }
     .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .stack-tag { font-size: 0.62rem; padding: 0.2rem 0.55rem; border-radius: 2px; border: 1px solid; }
-    .stack-green { background: rgba(245,196,0,0.07); border-color: rgba(245,196,0,0.25); color: var(--accent); }
-    .stack-blue  { background: rgba(255,217,77,0.05); border-color: rgba(255,217,77,0.2); color: var(--accent2); }
+    .stack-yellow{ background: rgba(245,196,0,0.07); border-color: rgba(245,196,0,0.25); color: var(--accent); }
+    .stack-gold  { background: rgba(255,217,77,0.05); border-color: rgba(255,217,77,0.2); color: var(--accent2); }
     .stack-amber { background: rgba(230,168,0,0.07); border-color: rgba(230,168,0,0.25); color: var(--accent3); }
-    .stack-purple{ background: rgba(200,192,168,0.05); border-color: rgba(200,192,168,0.15); color: #b0a880; }
+    .stack-muted { background: rgba(200,192,168,0.05); border-color: rgba(200,192,168,0.15); color: #b0a880; }
 
     /* EDUCATION */
     .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
@@ -286,7 +166,7 @@
 
     /* CONTACT */
     #contact { text-align: center; }
-    .contact-intro { font-size: 0.8rem; color: #6a6050; max-width: 500px; margin: 0 auto 3rem; line-height: 2; }
+    .contact-intro { font-size: 0.8rem; color: #6a6050; max-width: 540px; margin: 0 auto 3rem; line-height: 2; }
     .contact-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; max-width: 700px; margin: 0 auto; }
     .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; text-decoration: none; transition: all 0.3s; min-width: 200px; }
     .contact-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(245,196,0,0.12); }
@@ -294,6 +174,15 @@
     .contact-info { text-align: left; }
     .contact-type { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
     .contact-val { font-size: 0.76rem; color: var(--text); margin-top: 0.15rem; }
+
+    /* OPEN TO WORK BANNER */
+    .open-banner {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      background: rgba(245,196,0,0.08); border: 1px solid rgba(245,196,0,0.3);
+      border-radius: 4px; padding: 0.9rem 1.5rem; margin: 0 auto 2.5rem;
+      font-size: 0.75rem; color: var(--text);
+    }
+    .open-banner strong { color: var(--accent); }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.64rem; color: var(--muted); }
@@ -331,13 +220,13 @@
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-tag"><span class="dot"></span>Disponible · Antananarivo, Madagascar</div>
+      <div class="hero-tag"><span class="dot"></span>Open to Work · Antananarivo, Madagascar</div>
       <h1 class="hero-name">Ilo Ny Aina<br /><span>RASOANAIVO</span></h1>
       <p class="hero-title">Développeur Full-Stack</p>
       <p class="hero-desc">
-        Passionné par le numérique, rigoureux et curieux, je mets mes compétences en développement
-        au service de projets ambitieux. Titulaire d'une Licence en Informatique, je poursuis un
-        Master tout en étant pleinement disponible professionnellement.
+        Développeur passionné, rigoureux et curieux, je conçois des applications web et mobiles robustes.
+        Titulaire d'une Licence en Informatique et en Master, je suis prêt à intégrer une équipe
+        pour contribuer à des projets à fort impact technologique.
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">⚡ Voir mes projets</a>
@@ -369,9 +258,9 @@
     </div>
     <div class="about-grid">
       <div class="about-text">
-        <p>Titulaire d'une <strong>Licence en Informatique</strong> spécialisée en Développement à IT University Andoharanofotsy, je suis passionné par le numérique et motivé à mettre mes compétences au service de projets à fort impact.</p>
+        <p>Titulaire d'une <strong>Licence en Informatique</strong> spécialisée en Développement à IT University Andoharanofotsy, j'ai acquis une expérience concrète sur des projets réels en entreprise, couvrant le développement Full-Stack web et mobile.</p>
         <p><strong>Sérieux, rigoureux et curieux</strong>, j'apprends rapidement et m'adapte facilement aux nouvelles technologies ainsi qu'aux environnements de travail exigeants, aussi bien en autonomie qu'en équipe.</p>
-        <p>Je prépare actuellement un <strong>Master en Développement</strong> entièrement en ligne avec des horaires flexibles. Cette organisation n'impacte en aucun cas ma disponibilité ni mon engagement professionnel.</p>
+        <p>Je poursuis actuellement un <strong>Master en Développement</strong> entièrement en ligne avec des horaires flexibles. Cette organisation n'impacte en aucun cas ma disponibilité ni mon engagement professionnel à temps plein.</p>
         <div class="about-details">
           <div class="detail-row"><span class="detail-key">📅 Né le</span><span class="detail-val">20 août 2003</span></div>
           <div class="detail-row"><span class="detail-key">📍 Ville</span><span class="detail-val">Sabotsy Namehana, Antananarivo</span></div>
@@ -394,8 +283,8 @@
           <p>⚽ Football &nbsp;·&nbsp; 🎮 Jeux-vidéo &nbsp;·&nbsp; 💻 Technologie informatique</p>
         </div>
         <div class="info-card" style="border-left-color: var(--accent3);">
-          <h4>🎓 Formation en cours</h4>
-          <p>Master I en Développement — IT University<br />Formation 100% en ligne · Horaires flexibles<br />Disponibilité professionnelle totale</p>
+          <h4>💼 Recherche active</h4>
+          <p>Développeur Full-Stack disponible immédiatement pour un poste en CDI ou CDD. Master en cours (100% en ligne) — disponibilité professionnelle totale.</p>
         </div>
       </div>
     </div>
@@ -418,6 +307,7 @@
           <span class="skill-tag">JavaScript</span>
           <span class="skill-tag">Python</span>
           <span class="skill-tag">C#</span>
+          <span class="skill-tag">Dart</span>
         </div>
       </div>
       <div class="skill-category cat-2">
@@ -425,16 +315,16 @@
         <div class="cat-title">Frameworks</div>
         <div class="skill-tags">
           <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Laravel</span>
           <span class="skill-tag">Next.js</span>
           <span class="skill-tag">Express.js</span>
-          <span class="skill-tag">Laravel</span>
-          <span class="skill-tag">Symfony</span>
-          <span class="skill-tag">Angular</span>
-          <span class="skill-tag">Django</span>
-          <span class="skill-tag">CodeIgniter</span>
+          <span class="skill-tag">Flutter</span>
           <span class="skill-tag">React</span>
           <span class="skill-tag">Ionic</span>
-          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">Symfony</span>
+          <span class="skill-tag">CodeIgniter</span>
         </div>
       </div>
       <div class="skill-category cat-3">
@@ -454,6 +344,7 @@
           <span class="skill-tag">Talend (ETL)</span>
           <span class="skill-tag">Git / CI/CD</span>
           <span class="skill-tag">API REST</span>
+          <span class="skill-tag">WebSocket</span>
           <span class="skill-tag">UI/UX</span>
         </div>
       </div>
@@ -469,29 +360,26 @@
     </div>
     <div class="timeline">
 
-      <!-- SMMEC — ERP (en cours) -->
+      <!-- SMMEC -->
       <div class="timeline-item">
-        <div class="timeline-dot active"></div>
+        <div class="timeline-dot"></div>
         <div class="timeline-card featured">
           <div class="timeline-header">
-            <div class="timeline-role">Stage Développeur Full-Stack — Projet ERP</div>
-            <div class="timeline-date current">Mars – 15 Juin 2026</div>
+            <div class="timeline-role">Développeur Full-Stack — Projet ERP</div>
+            <div class="timeline-date">Mars – Juin 2026</div>
           </div>
-          <div class="timeline-company">
-            SMMEC <span class="company-sep">·</span> Société Malagasy Mutualiste d'Épargne et de Crédit
-            <span class="company-sep">·</span>
-            <span class="duration-badge">Stage · 3 mois</span>
-          </div>
+          <div class="timeline-company">SMMEC · Société Malagasy Mutualiste d'Épargne et de Crédit</div>
+          <div class="timeline-meta">Développement · 3 mois</div>
           <ul class="timeline-list">
             <li>Conception et développement d'un ERP complet de gestion de stock et de logistique</li>
-            <li>Architecture backend Laravel avec API REST et système d'authentification par rôles (Agence, Direction, DAF, Logistique)</li>
+            <li>Architecture backend Laravel avec API REST et authentification par rôles (Agence, Direction, DAF, Logistique)</li>
             <li>Gestion des mouvements de stock : entrées séquencées (LIFO/FIFO), sorties par lot avec traçabilité complète</li>
-            <li>Implémentation d'un circuit de validation des demandes d'achat multi-niveaux (Direction → DAF → Logistique)</li>
-            <li>Tableau de bord analytique avec graphiques (top matériels demandés, classement utilisateurs, filtres dynamiques)</li>
-            <li>Développement de l'interface mobile Flutter (écrans logistique, formulaires, recherche intelligente)</li>
+            <li>Circuit de validation des demandes d'achat multi-niveaux (Direction → DAF → Logistique)</li>
+            <li>Tableau de bord analytique avec graphiques (top matériels, classement utilisateurs, filtres dynamiques)</li>
+            <li>Application mobile Flutter : écrans logistique, formulaires, recherche intelligente</li>
             <li>Gestion multi-organisations avec filtrage par lieu et type d'organisation</li>
-            <li>Planification et suivi des livraisons avec statuts, affectation de transporteurs et historique des expéditions</li>
-            <li>Système de notification en temps réel (alertes stock critique, validation de demande, statut de livraison) via WebSocket</li>
+            <li>Planification et suivi des livraisons avec statuts, affectation de transporteurs et historique</li>
+            <li>Notifications en temps réel (stock critique, validation, statut livraison) via WebSocket</li>
           </ul>
           <div class="tech-stack">
             <span class="tech-pill">Laravel</span>
@@ -500,20 +388,20 @@
             <span class="tech-pill">REST API</span>
             <span class="tech-pill">WebSocket</span>
             <span class="tech-pill">Git</span>
-            <span class="tech-pill">fl_chart</span>
           </div>
         </div>
       </div>
 
-      <!-- M-Pro Car (stage) -->
+      <!-- M-Pro Car -->
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
+        <div class="timeline-dot dot-dim"></div>
         <div class="timeline-card">
           <div class="timeline-header">
-            <div class="timeline-role">Stage Développeur Full-Stack</div>
+            <div class="timeline-role">Développeur Full-Stack</div>
             <div class="timeline-date">Sept. – Nov. 2024</div>
           </div>
           <div class="timeline-company">M-Pro Car Madagascar</div>
+          <div class="timeline-meta">Développement · 3 mois</div>
           <ul class="timeline-list">
             <li>Développement d'une application web de gestion de rendez-vous et de services automobiles</li>
             <li>Conception du backend avec Spring Boot et création d'API REST</li>
@@ -534,6 +422,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -545,68 +434,88 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
+
       <div class="project-card" style="border-left: 3px solid var(--accent);">
         <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
-        <div class="project-title">M-Pro Car — Gestion Auto</div>
-        <p class="project-desc">Application web complète pour la gestion de rendez-vous et services automobiles. Backend Spring Boot, API REST, authentification multi-rôles et gestion de stock.</p>
+        <div class="project-title">ERP SMMEC — Gestion Stock & Logistique</div>
+        <p class="project-desc">ERP complet pour une institution financière mutualiste : gestion de stock multi-méthodes, circuit de validation des achats, tableau de bord analytique et application mobile Flutter.</p>
         <div class="project-stack">
-          <span class="stack-tag stack-green">Spring Boot</span>
-          <span class="stack-tag stack-blue">Next.js</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
-          <span class="stack-tag stack-amber">Git / CI/CD</span>
+          <span class="stack-tag stack-yellow">Laravel</span>
+          <span class="stack-tag stack-yellow">Flutter</span>
+          <span class="stack-tag stack-amber">MySQL</span>
+          <span class="stack-tag stack-muted">WebSocket</span>
+          <span class="stack-tag stack-muted">Git</span>
         </div>
       </div>
+
+      <div class="project-card" style="border-left: 3px solid var(--accent3);">
+        <div class="project-num" style="color:rgba(230,168,0,0.1)">★</div>
+        <div class="project-title">M-Pro Car — Gestion Auto</div>
+        <p class="project-desc">Application web de gestion de rendez-vous et services automobiles. Backend Spring Boot, API REST, authentification multi-rôles et gestion de stock.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-yellow">Spring Boot</span>
+          <span class="stack-tag stack-gold">Next.js</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
+          <span class="stack-tag stack-muted">CI/CD</span>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-num">01</div>
         <div class="project-title">Gestion de Stock (LIFO / FIFO / CMUP)</div>
         <p class="project-desc">Application de gestion des mouvements de stocks avec support des méthodes d'évaluation LIFO, FIFO et CMUP. Suivi complet des entrées et sorties.</p>
         <div class="project-stack">
-          <span class="stack-tag stack-green">Express.js</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
-          <span class="stack-tag stack-amber">Node.js</span>
+          <span class="stack-tag stack-yellow">Express.js</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
+          <span class="stack-tag stack-muted">Node.js</span>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-num">02</div>
         <div class="project-title">Vente de Voitures — Web & Mobile</div>
         <p class="project-desc">Plateforme complète pour vendre et acheter des voitures avec backend Spring Boot, interface web React et application mobile Ionic.</p>
         <div class="project-stack">
-          <span class="stack-tag stack-green">Spring Boot</span>
-          <span class="stack-tag stack-blue">React</span>
-          <span class="stack-tag stack-purple">Ionic</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-yellow">Spring Boot</span>
+          <span class="stack-tag stack-gold">React</span>
+          <span class="stack-tag stack-muted">Ionic</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-num">03</div>
         <div class="project-title">Mada-Immo — Gestion Immobilière</div>
         <p class="project-desc">Application de gestion de location de biens immobiliers pour plusieurs propriétaires. Suivi des locataires, prélèvement des loyers mensuels et états des lieux.</p>
         <div class="project-stack">
           <span class="stack-tag stack-amber">PHP</span>
-          <span class="stack-tag stack-amber">CodeIgniter</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-yellow">CodeIgniter</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-num">04</div>
         <div class="project-title">Ultimate Team Race</div>
         <p class="project-desc">Plateforme de gestion de courses à pieds : inscription des coureurs, enregistrement des résultats et classements dynamiques par épreuve.</p>
         <div class="project-stack">
           <span class="stack-tag stack-amber">PHP</span>
-          <span class="stack-tag stack-green">Laravel</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
+          <span class="stack-tag stack-yellow">Laravel</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
         </div>
       </div>
+
       <div class="project-card">
         <div class="project-num">05</div>
         <div class="project-title">Gestion d'Entreprise (RH & Stocks)</div>
         <p class="project-desc">Application de gestion des ressources humaines et des stocks d'une entreprise. Suivi des employés, inventaires et génération de rapports.</p>
         <div class="project-stack">
-          <span class="stack-tag stack-green">Java</span>
-          <span class="stack-tag stack-blue">PostgreSQL</span>
-          <span class="stack-tag stack-purple">MVC</span>
+          <span class="stack-tag stack-yellow">Java</span>
+          <span class="stack-tag stack-amber">PostgreSQL</span>
+          <span class="stack-tag stack-muted">MVC</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -651,7 +560,15 @@
       <h2 class="section-title">Travaillons <span>ensemble</span></h2>
       <div class="section-line" style="margin:0.8rem auto 0;"></div>
     </div>
-    <p class="contact-intro">Disponible pour toute opportunité professionnelle, stage ou projet. N'hésitez pas à me contacter par email ou WhatsApp.</p>
+
+    <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+      <div class="open-banner">
+        <span>🟡</span>
+        <span><strong>Open to Work</strong> — Disponible immédiatement pour un poste de Développeur Full-Stack (CDI / CDD / Freelance)</span>
+      </div>
+    </div>
+
+    <p class="contact-intro">Je suis prêt à rejoindre une équipe et à contribuer à des projets ambitieux. Contactez-moi par email ou WhatsApp, je réponds rapidement.</p>
     <div class="contact-cards">
       <a href="mailto:Soanaivojunior@gmail.com" class="contact-card">
         <div class="contact-icon">✉️</div>
@@ -680,17 +597,13 @@
   <!-- FOOTER -->
   <footer>
     <span style="color:var(--accent)">Ilo Ny Aina RASOANAIVO</span>
-    <span>Développeur Full-Stack · 2025</span>
+    <span>Développeur Full-Stack · 2026</span>
   </footer>
 
   <script>
-    // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
       });
     }, { threshold: 0.08 });
 
@@ -701,15 +614,12 @@
       observer.observe(el);
     });
 
-    // Nav active highlight
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
-      });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : ''; });
     });
   </script>
 </body>
