@@ -365,25 +365,28 @@
         <div class="timeline-dot"></div>
         <div class="timeline-card featured">
           <div class="timeline-header">
-            <div class="timeline-role">Développeur Full-Stack — ERP Gestion Achats & Stocks</div>
+            <div class="timeline-role">Développeur Full-Stack — ERP Gestion des Demandes d'Achat</div>
             <div class="timeline-date">Mars – Juin 2026</div>
           </div>
           <div class="timeline-company">SMMEC · Société Malagasy Mutualiste d'Épargne et de Crédit</div>
-          <div class="timeline-meta">Stage de développement · 3 mois</div>
+          <div class="timeline-meta">Stage de développement · 3 mois · Module mis en production</div>
           <ul class="timeline-list">
-            <li>Conception et développement d'un ERP complet de gestion des demandes d'achat et de stocks</li>
-            <li>Circuit de validation multi-niveaux des demandes d'achat : Agence → Direction → DAF → Logistique</li>
-            <li>Gestion des stocks : entrées/sorties avec règle de gestion, traçabilité complète par lot</li>
-            <li>Architecture backend Laravel avec API REST et authentification par rôles (Agence, Direction, DAF, Logistique)</li>
-            <li>Tableau de bord analytique : top matériels, alertes stock critique, filtres dynamiques par organisation</li>
-            <li>Application mobile Flutter : soumission de demandes d'achat, suivi statuts, recherche intelligente</li>
-            <li>Gestion multi-organisations avec filtrage par lieu et type d'organisation</li>
-            <li>Planification et suivi des livraisons avec affectation de transporteurs et historique</li>
-            <li>Notifications en temps réel (validation, stock critique, statut livraison) via WebSocket</li>
+            <li>Projet mené seul : conception de l'architecture, modélisation des données, design UI/UX et développement full-stack from scratch</li>
+            <li>Conception et développement d'un ERP de gestion des demandes d'achat (biens & services), mis en production en fin de stage</li>
+            <li>Circuit de validation multi-niveaux avec gestion des litiges et annulation motivée</li>
+            <li>Architecture backend Laravel (API REST, Sanctum, couche Service) et application mobile Flutter multi-rôles</li>
+            <li>Pagination côté serveur et client Flutter pour les listes de demandes volumineuses</li>
+            <li>Cache mémoire avec TTL différenciés par type de donnée et invalidation ciblée après chaque mutation</li>
+            <li>Serveur de notifications temps réel en Go (WebSocket), avec reconnexion automatique et abonnements par rôle/utilisateur</li>
+            <li>Gestion des DEDs : comparaison multi-fournisseurs, proformats, notes fournisseurs, upload et génération de factures PDF</li>
+            <li>Historique filtrable (statut, plage de dates) et journal d'audit des actions utilisateurs</li>
+            <li>Gestion multi-organisations avec filtrage par lieu et type, tableau de bord analytique (top demandeurs, filtres dynamiques)</li>
+            <li>Conception du module de gestion des stocks (architecture, modèles de données, spécifications)</li>
           </ul>
           <div class="tech-stack">
             <span class="tech-pill">Laravel</span>
             <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">Go</span>
             <span class="tech-pill">MySQL</span>
             <span class="tech-pill">REST API</span>
             <span class="tech-pill">WebSocket</span>
@@ -437,8 +440,8 @@
 
       <div class="project-card" style="border-left: 3px solid var(--accent);">
         <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
-        <div class="project-title">ERP SMMEC — Gestion Demandes d'Achat & Stocks</div>
-        <p class="project-desc">ERP complet pour une institution financière mutualiste : circuit de validation multi-niveaux des demandes d'achat (Agence → Direction → DAF → Logistique), gestion de stock LIFO/FIFO, tableau de bord analytique et application mobile Flutter.</p>
+        <div class="project-title">ERP SMMEC — Gestion des Demandes d'Achat</div>
+        <p class="project-desc">Module ERP mis en production pour une institution financière mutualiste. Circuit de validation multi-niveaux, cache TTL à 3 niveaux, pagination serveur, notifications temps réel via WebSocket (serveur Go) avec reconnexion auto, comparaison proformats/fournisseurs et génération PDF.</p>
         <div class="project-stack">
           <span class="stack-tag stack-yellow">Laravel</span>
           <span class="stack-tag stack-yellow">Flutter</span>
