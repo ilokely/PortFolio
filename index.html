@@ -220,13 +220,13 @@
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-tag"><span class="dot"></span>Open to Work · Antananarivo, Madagascar</div>
+      <div class="hero-tag"><span class="dot"></span>Développeur Full-Stack chez SMMEC · Antananarivo, Madagascar</div>
       <h1 class="hero-name">Ilo Ny Aina<br /><span>RASOANAIVO</span></h1>
       <p class="hero-title">Développeur Full-Stack</p>
       <p class="hero-desc">
         Développeur passionné, rigoureux et curieux, je conçois des applications web et mobiles robustes.
-        Titulaire d'une Licence en Informatique et en Master, je suis prêt à intégrer une équipe
-        pour contribuer à des projets à fort impact technologique.
+        Titulaire d'une Licence en Informatique et en Master, je développe actuellement l'ERP
+        de la SMMEC, en production et utilisé au quotidien.
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">⚡ Voir mes projets</a>
@@ -283,8 +283,8 @@
           <p>⚽ Football &nbsp;·&nbsp; 🎮 Jeux-vidéo &nbsp;·&nbsp; 💻 Technologie informatique</p>
         </div>
         <div class="info-card" style="border-left-color: var(--accent3);">
-          <h4>💼 Recherche active</h4>
-          <p>Développeur Full-Stack disponible immédiatement pour un poste en CDI ou CDD. Master en cours (100% en ligne) — disponibilité professionnelle totale.</p>
+          <h4>💼 Situation actuelle</h4>
+          <p>Développeur Full-Stack à la SMMEC : stage (mars 2026), puis CDD (juillet – octobre 2026), puis CDI à partir d'octobre 2026. Master en cours (100 % en ligne), compatible avec un temps plein.</p>
         </div>
       </div>
     </div>
@@ -365,32 +365,33 @@
         <div class="timeline-dot"></div>
         <div class="timeline-card featured">
           <div class="timeline-header">
-            <div class="timeline-role">Développeur Full-Stack — ERP Gestion des Demandes d'Achat</div>
-            <div class="timeline-date">Mars – Juin 2026</div>
+            <div class="timeline-role">Développeur Full-Stack — ERP Achats &amp; Stock</div>
+            <div class="timeline-date">Mars 2026 – Aujourd'hui</div>
           </div>
           <div class="timeline-company">SMMEC · Société Malagasy Mutualiste d'Épargne et de Crédit</div>
-          <div class="timeline-meta">Stage de développement · 3 mois · Module mis en production</div>
+          <div class="timeline-meta">Stage (mars – juin 2026) → CDD (juil. – oct. 2026) → CDI à partir d'octobre 2026 · ERP en production</div>
           <ul class="timeline-list">
-            <li>Projet mené seul : conception de l'architecture, modélisation des données, design UI/UX et développement full-stack from scratch</li>
-            <li>Conception et développement d'un ERP de gestion des demandes d'achat (biens & services), mis en production en fin de stage</li>
-            <li>Circuit de validation multi-niveaux avec gestion des litiges et annulation motivée</li>
-            <li>Architecture backend Laravel (API REST, Sanctum, couche Service) et application mobile Flutter multi-rôles</li>
-            <li>Pagination côté serveur et client Flutter pour les listes de demandes volumineuses</li>
-            <li>Cache mémoire avec TTL différenciés par type de donnée et invalidation ciblée après chaque mutation</li>
-            <li>Serveur de notifications temps réel en Go (WebSocket), avec reconnexion automatique et abonnements par rôle/utilisateur</li>
-            <li>Gestion des DEDs : comparaison multi-fournisseurs, proformats, notes fournisseurs, upload et génération de factures PDF</li>
-            <li>Historique filtrable (statut, plage de dates) et journal d'audit des actions utilisateurs</li>
-            <li>Gestion multi-organisations avec filtrage par lieu et type, tableau de bord analytique (top demandeurs, filtres dynamiques)</li>
-            <li>Conception du module de gestion des stocks (architecture, modèles de données, spécifications)</li>
+            <li>Projet mené seul de A à Z : architecture, modélisation des données, design UI/UX et développement full-stack d'un ERP couvrant tout le flux logistique (demande d'achat → validation → DED → réception → mouvements de stock)</li>
+            <li>Architecture à 3 composants : API REST Laravel (couches Controller → Service → Model), client Flutter unique pour Android tablette et Windows desktop, microservice Go de notifications temps réel (WebSocket, reconnexion auto, abonnements par rôle/utilisateur)</li>
+            <li>Moteur de workflow de validation configurable par l'admin (statuts, ordre, notifications), avec gestion des litiges et annulation motivée</li>
+            <li>Modèle de stock à deux régimes : stock valorisé (FIFO / LIFO / CMUP) et traçabilité unitaire pièce par pièce, avec caractéristiques dynamiques et calcul de prix par groupe de caractéristiques</li>
+            <li>Génération de références séquentielles thread-safe (bons DED, codes matériel) : verrouillage pessimiste, contrainte d'unicité + retry, format paramétrable sans casser les références existantes</li>
+            <li>Gestion des DED : comparaison multi-fournisseurs, proformas, notes fournisseurs, suivi des paiements de caisse</li>
+            <li>Sécurité : authentification Sanctum avec expiration par inactivité, RBAC par page/action, gestion multi-organisations (organisation, rôle, affiliation)</li>
+            <li>Génération de PDF côté client (bons de sortie, états de stock agrégés et détaillés, factures) et journal d'audit filtrable des mouvements et actions utilisateurs</li>
+            <li>Performance : pagination serveur/client, cache mémoire avec TTL par type de donnée et invalidation ciblée</li>
+            <li>Mise en place d'un pipeline CI/CD GitHub Actions (PHPUnit, flutter analyze/test, build et release automatisés APK + Windows) et mise à jour automatique des applications</li>
+            <li>Amélioration continue à partir des retours utilisateurs réels : refonte d'écrans à fort usage, audit UX mobile, protection anti double-soumission</li>
           </ul>
           <div class="tech-stack">
             <span class="tech-pill">Laravel</span>
             <span class="tech-pill">Flutter</span>
             <span class="tech-pill">Go</span>
             <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">Sanctum</span>
             <span class="tech-pill">REST API</span>
             <span class="tech-pill">WebSocket</span>
-            <span class="tech-pill">Git</span>
+            <span class="tech-pill">GitHub Actions</span>
           </div>
         </div>
       </div>
@@ -440,14 +441,15 @@
 
       <div class="project-card" style="border-left: 3px solid var(--accent);">
         <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
-        <div class="project-title">ERP SMMEC — Gestion des Demandes d'Achat</div>
-        <p class="project-desc">Module ERP mis en production pour une institution financière mutualiste. Circuit de validation multi-niveaux, cache TTL à 3 niveaux, pagination serveur, notifications temps réel via WebSocket (serveur Go) avec reconnexion auto, comparaison proformats/fournisseurs et génération PDF.</p>
+        <div class="project-title">ERP SMMEC — Achats &amp; Gestion de Stock</div>
+        <p class="project-desc">ERP en production pour une institution financière mutualiste (~50k lignes, 34 modèles, 97 écrans). Flux complet demande d'achat → validation configurable → DED → réception → stock (FIFO/LIFO/CMUP et traçabilité unitaire). API Laravel, app Flutter Android + Windows, notifications temps réel en Go (WebSocket), PDF, RBAC multi-organisations et CI/CD GitHub Actions.</p>
         <div class="project-stack">
           <span class="stack-tag stack-yellow">Laravel</span>
           <span class="stack-tag stack-yellow">Flutter</span>
+          <span class="stack-tag stack-gold">Go</span>
           <span class="stack-tag stack-amber">MySQL</span>
           <span class="stack-tag stack-muted">WebSocket</span>
-          <span class="stack-tag stack-muted">Git</span>
+          <span class="stack-tag stack-muted">GitHub Actions</span>
         </div>
       </div>
 
@@ -567,7 +569,7 @@
     <div style="display:flex;justify-content:center;margin-bottom:2rem;">
       <div class="open-banner">
         <span>🟡</span>
-        <span><strong>Open to Work</strong> — Disponible immédiatement pour un poste de Développeur Full-Stack (CDI / CDD / Freelance)</span>
+        <span><strong>En poste</strong> — Développeur Full-Stack à la SMMEC, ouvert aux échanges professionnels</span>
       </div>
     </div>
 
