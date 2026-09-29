@@ -133,6 +133,8 @@
     .timeline-date { font-size: 0.67rem; color: var(--accent); border: 1px solid rgba(245,196,0,0.35); padding: 0.2rem 0.6rem; border-radius: 3px; white-space: nowrap; }
     .timeline-company { font-size: 0.74rem; color: var(--accent3); margin-bottom: 0.3rem; }
     .timeline-meta { font-size: 0.67rem; color: var(--muted); margin-bottom: 1rem; }
+    .timeline-sub { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--accent2); margin: 1.2rem 0 0.6rem; }
+    .timeline-sub span { font-family: 'DM Mono', monospace; font-weight: 400; font-size: 0.64rem; color: var(--muted); margin-left: 0.4rem; }
     .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
     .timeline-list li { font-size: 0.74rem; color: #7a7060; line-height: 1.8; display: flex; align-items: flex-start; gap: 0.6rem; }
     .timeline-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.05rem; }
@@ -235,7 +237,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="stat-num">7+</div>
+        <div class="stat-num">8+</div>
         <div class="stat-label">Projets réalisés</div>
       </div>
       <div class="stat-card">
@@ -243,7 +245,7 @@
         <div class="stat-label">Langages</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">11+</div>
+        <div class="stat-num">12+</div>
         <div class="stat-label">Frameworks</div>
       </div>
     </div>
@@ -323,6 +325,7 @@
           <span class="skill-tag">Ionic</span>
           <span class="skill-tag">Angular</span>
           <span class="skill-tag">Django</span>
+          <span class="skill-tag">FastAPI</span>
           <span class="skill-tag">Symfony</span>
           <span class="skill-tag">CodeIgniter</span>
         </div>
@@ -365,11 +368,12 @@
         <div class="timeline-dot"></div>
         <div class="timeline-card featured">
           <div class="timeline-header">
-            <div class="timeline-role">Développeur Full-Stack — ERP Achats &amp; Stock</div>
+            <div class="timeline-role">Développeur Full-Stack</div>
             <div class="timeline-date">Mars 2026 – Aujourd'hui</div>
           </div>
           <div class="timeline-company">SMMEC · Société Malagasy Mutualiste d'Épargne et de Crédit</div>
-          <div class="timeline-meta">Stage (mars – juin 2026) → CDD (juil. – oct. 2026) → CDI à partir d'octobre 2026 · ERP en production</div>
+          <div class="timeline-meta">Stage (mars – juin 2026) → CDD (juil. – oct. 2026) → CDI à partir d'octobre 2026 · 2 applications en production</div>
+          <div class="timeline-sub" style="margin-top:0;">ERP Achats &amp; Stock<span>· Laravel · Flutter · Go</span></div>
           <ul class="timeline-list">
             <li>Projet mené seul de A à Z : architecture, modélisation des données, design UI/UX et développement full-stack d'un ERP couvrant tout le flux logistique (demande d'achat → validation → DED → réception → mouvements de stock)</li>
             <li>Architecture à 3 composants : API REST Laravel (couches Controller → Service → Model), client Flutter unique pour Android tablette et Windows desktop, microservice Go de notifications temps réel (WebSocket, reconnexion auto, abonnements par rôle/utilisateur)</li>
@@ -383,11 +387,22 @@
             <li>Mise en place d'un pipeline CI/CD GitHub Actions (PHPUnit, flutter analyze/test, build et release automatisés APK + Windows) et mise à jour automatique des applications</li>
             <li>Amélioration continue à partir des retours utilisateurs réels : refonte d'écrans à fort usage, audit UX mobile, protection anti double-soumission</li>
           </ul>
+          <div class="timeline-sub">SyGeFi Traitement<span>· Flutter · FastAPI · MySQL</span></div>
+          <ul class="timeline-list">
+            <li>Application interne de traitement des opérations des membres (empreintes biométriques, annulation d'opérations, rotation des caissiers, gestion des accès) sur Windows, Android et web, à partir d'une seule base de code Flutter</li>
+            <li>Intégration back-end FastAPI : exposition de traitements métier existants (scripts Python, notebooks) en API REST, authentification JWT avec rôles, révocation des jetons, mots de passe hachés (bcrypt)</li>
+            <li>Migration d'un outil Streamlit (rotation des caissiers) vers l'application sans modifier ses règles métier</li>
+            <li>Connexion à plusieurs serveurs MySQL, requêtes SQL paramétrées et transactions pour les mises à jour sensibles</li>
+            <li>Garde-fous sur les actions sensibles (analyse obligatoire, confirmations), session par inactivité, import Excel avec étape de vérification</li>
+            <li>Packaging : installateur Windows (Inno Setup), APK signée, script de build PowerShell unique</li>
+          </ul>
           <div class="tech-stack">
             <span class="tech-pill">Laravel</span>
             <span class="tech-pill">Flutter</span>
             <span class="tech-pill">Go</span>
+            <span class="tech-pill">FastAPI</span>
             <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">JWT</span>
             <span class="tech-pill">Sanctum</span>
             <span class="tech-pill">REST API</span>
             <span class="tech-pill">WebSocket</span>
@@ -450,6 +465,19 @@
           <span class="stack-tag stack-amber">MySQL</span>
           <span class="stack-tag stack-muted">WebSocket</span>
           <span class="stack-tag stack-muted">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="project-card" style="border-left: 3px solid var(--accent);">
+        <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
+        <div class="project-title">SyGeFi Traitement — SMMEC</div>
+        <p class="project-desc">Application interne de traitement des opérations des membres : empreintes biométriques, annulation d'opérations, rotation des caissiers et gestion des accès. App Flutter unique (Windows, Android, web) connectée à une API FastAPI sécurisée par JWT, multi-serveurs MySQL, garde-fous sur les actions sensibles.</p>
+        <div class="project-stack">
+          <span class="stack-tag stack-yellow">Flutter</span>
+          <span class="stack-tag stack-gold">FastAPI</span>
+          <span class="stack-tag stack-amber">MySQL</span>
+          <span class="stack-tag stack-muted">JWT</span>
+          <span class="stack-tag stack-muted">Inno Setup</span>
         </div>
       </div>
 
