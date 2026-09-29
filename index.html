@@ -390,7 +390,8 @@
           <div class="timeline-sub">SyGeFi Traitement<span>· Flutter · FastAPI · MySQL</span></div>
           <ul class="timeline-list">
             <li>Application interne de traitement des opérations des membres (empreintes biométriques, annulation d'opérations, rotation des caissiers, gestion des accès) sur Windows, Android et web, à partir d'une seule base de code Flutter</li>
-            <li>Intégration back-end FastAPI : exposition de traitements métier existants (scripts Python, notebooks) en API REST, authentification JWT avec rôles, révocation des jetons, mots de passe hachés (bcrypt)</li>
+            <li>Conception et développement de l'API REST FastAPI : industrialisation de traitements métier exécutés jusque-là à la main dans des notebooks Jupyter et scripts Python, transformés en endpoints REST sécurisés, organisés par module et utilisables depuis l'application</li>
+            <li>Sécurité de l'API : authentification JWT avec rôles, révocation des jetons à la déconnexion, mots de passe hachés (bcrypt), secrets hors du code (variables d'environnement)</li>
             <li>Migration d'un outil Streamlit (rotation des caissiers) vers l'application sans modifier ses règles métier</li>
             <li>Connexion à plusieurs serveurs MySQL, requêtes SQL paramétrées et transactions pour les mises à jour sensibles</li>
             <li>Garde-fous sur les actions sensibles (analyse obligatoire, confirmations), session par inactivité, import Excel avec étape de vérification</li>
@@ -471,10 +472,11 @@
       <div class="project-card" style="border-left: 3px solid var(--accent);">
         <div class="project-num" style="color:rgba(245,196,0,0.13)">★</div>
         <div class="project-title">SyGeFi Traitement — SMMEC</div>
-        <p class="project-desc">Application interne de traitement des opérations des membres : empreintes biométriques, annulation d'opérations, rotation des caissiers et gestion des accès. App Flutter unique (Windows, Android, web) connectée à une API FastAPI sécurisée par JWT, multi-serveurs MySQL, garde-fous sur les actions sensibles.</p>
+        <p class="project-desc">Application interne de traitement des opérations des membres : empreintes biométriques, annulation d'opérations, rotation des caissiers et gestion des accès. Transformation de notebooks Jupyter et scripts Python en API REST FastAPI sécurisée par JWT, consommée par une app Flutter unique (Windows, Android, web). Multi-serveurs MySQL, garde-fous sur les actions sensibles.</p>
         <div class="project-stack">
           <span class="stack-tag stack-yellow">Flutter</span>
           <span class="stack-tag stack-gold">FastAPI</span>
+          <span class="stack-tag stack-gold">Python</span>
           <span class="stack-tag stack-amber">MySQL</span>
           <span class="stack-tag stack-muted">JWT</span>
           <span class="stack-tag stack-muted">Inno Setup</span>
